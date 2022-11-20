@@ -37,15 +37,9 @@ def run_trial():
     # print("Resulting matrix:")
     # print(multiply)
     
-    start = time.time()
-    # print(np.einsum('ij, jk->ik', matrix_one, matrix_two))
-    end = time.time()
-    result_three = end - start 
-
     tie_count = 0 
     result_one_count = 0
     result_two_count = 0
-    result_three_count = 0
     if (result_one < result_two):
         result_one_count += 1
     elif (result_two < result_one):
@@ -67,12 +61,12 @@ def einsum_test():
     for i in range(10000):
         
         start = time.time()
-        multiply = np.dot(matrix_one, matrix_two)
+        np.dot(matrix_one, matrix_two)
         end = time.time()
         result_two = end - start
         
         start = time.time()
-        # print(np.einsum('ij, jk->ik', matrix_one, matrix_two))
+        np.einsum('ij, jk->ik', matrix_one, matrix_two)
         end = time.time()
         result_three = end - start
 
